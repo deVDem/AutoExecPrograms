@@ -41,9 +41,9 @@ namespace AutoExecPrograms
         private static String EXEC_BUTTON = "Execute!";
         private static String ADD = "Add";
         private static String REMOVE = "Remove";
-        private static String NAME_PROCESS = "Name: ";
-        private static String PATH_PROCESS = "Path: ";
-        private static String ARGS_PROCESS = "Arguments: ";
+        private static String NAME_PROCESS = "Name";
+        private static String PATH_PROCESS = "Path";
+        private static String ARGS_PROCESS = "Arguments";
 
         public Strings()
         {

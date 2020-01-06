@@ -71,5 +71,9 @@ namespace AutoExecPrograms
             }
             return null;
         }
+        public List<DataProcess> GetDataProcesses()
+        {
+            return dataProcesses;
+        }
     }
 }
