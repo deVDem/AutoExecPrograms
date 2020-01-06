@@ -43,11 +43,10 @@ namespace AutoExecPrograms
             if (textBoxName.Text.Length != 0 || textBoxName.Text.Length != 0)
             {
                 mDataController.addProcess(textBoxName.Text, textBoxPath.Text, textBoxArgs.Text);
+                form1.updateUI();
+                Close();
             }
-            else MessageBox.Show("Введи имя и путь к процессу", "Error");
-
-            form1.updateUI();
-            Close();
+            else MessageBox.Show(strings.getString(stringsIDs.getId("ERROR_NO_NAME_PATH")), strings.getString(stringsIDs.getId("ERROR")));
         }
     }
 }
