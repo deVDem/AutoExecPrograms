@@ -42,10 +42,16 @@ namespace AutoExecPrograms
     }
     class DataController
     {
+        private static DataController sDataController;
         private List<DataProcess> dataProcesses = new List<DataProcess>();
         public DataController()
         {
             
+        }
+        public static DataController get()
+        {
+            if (sDataController == null) sDataController = new DataController();
+            return sDataController;
         }
         public void addProcess(String name, String path, String args)
         {

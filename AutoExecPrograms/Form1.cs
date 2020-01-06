@@ -17,12 +17,11 @@ namespace AutoExecPrograms
         private Strings strings = new Strings();
         private StringsIDs stringsIDs = new StringsIDs();
         private List<DataProcess> dataProcesses;
-        private DataController dataController = new DataController();
+        private DataController dataController = DataController.get();
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             this.label_appname.Text = strings.getString(stringsIDs.getId(this.label_appname.Text));
@@ -37,33 +36,35 @@ namespace AutoExecPrograms
         public void updateUI()
         {
             listView1.Columns.Clear();
+            listView1.Items.Clear();
             int width = (listView1.Width / 3);
-            listView1.Columns.Add(strings.getString(stringsIDs.getId("NAME_PROCESS")), width);
-            for(int i = 0; i<dataProcesses.Count; i++)
+            String name = strings.getString(stringsIDs.getId("NAME_PROCESS"));
+            String path = strings.getString(stringsIDs.getId("PATH_PROCESS"));
+            String args = strings.getString(stringsIDs.getId("ARGS_PROCESS"));
+            listView1.Columns.Add(name, width);
+            listView1.Columns.Add(path, width);
+            listView1.Columns.Add(args, width);
+            for (int i = 0; i<dataProcesses.Count; i++)
             {
-                listView1.Items.Add(dataProcesses[i].getName());
-            }
-            listView1.Columns.Add(strings.getString(stringsIDs.getId("PATH_PROCESS")), width);
-            for (int i = 0; i < dataProcesses.Count; i++)
-            {
-                listView1.Items.Add(dataProcesses[i].getPath());
-            }
-            listView1.Columns.Add(strings.getString(stringsIDs.getId("ARGS_PROCESS")), width);
-            for (int i = 0; i < dataProcesses.Count; i++)
-            {
-                listView1.Items.Add(dataProcesses[i].getArgs());
+                ListViewItem newitem = new ListViewItem(dataProcesses[i].getName(), name);
+                newitem.SubItems.Add(dataProcesses[i].getPath());
+                newitem.SubItems.Add(dataProcesses[i].getArgs());
+                listView1.Items.Add(newitem);
             }
         }
 
         private void button_exec_Click(object sender, EventArgs e)
         {
             //listView1.Items.Add(object); // добавить объект
-            // Process.Start("C:/Windows/System32/dxcpl.exe", ""); // использовать для запуска процессов
+            for (int i = 0; i < dataProcesses.Count; i++)
+            {
+                Process.Start(dataProcesses[i].getPath(), dataProcesses[i].getArgs());
+            }
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            Form2 newForm = new Form2();
+            Form2 newForm = new Form2(this);
             newForm.Show();
         }
 
