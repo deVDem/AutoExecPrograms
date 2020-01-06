@@ -61,13 +61,27 @@ namespace AutoExecPrograms
             process.setArgs(args);
             dataProcesses.Add(process);
         }
-        public void deleteProcess(String path)
+        public void deleteProcess(String s)
         {
-            dataProcesses.Remove(findProcess(path));
+            DataProcess process = findProcessByPath(s);
+            if (process == null) process = findProcessByName(s);
+            if (process != null) dataProcesses.Remove(process);
         }
-        public DataProcess findProcess(String path)
+        public DataProcess findProcessByName(String name)
         {
-            for (int i = 0; i <= dataProcesses.Count; i ++)
+            for (int i = 0; i < dataProcesses.Count; i++)
+            {
+                DataProcess process = dataProcesses[i];
+                if (process.getName() == name)
+                {
+                    return process;
+                }
+            }
+            return null;
+        }
+        public DataProcess findProcessByPath(String path)
+        {
+            for (int i = 0; i < dataProcesses.Count; i ++)
             {
                 DataProcess process = dataProcesses[i];
                 if(process.getPath()==path)

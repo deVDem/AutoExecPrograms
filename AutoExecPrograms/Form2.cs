@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoExecPrograms
@@ -16,7 +9,10 @@ namespace AutoExecPrograms
         private StringsIDs stringsIDs = new StringsIDs();
         private DataController mDataController;
         private Form1 form1;
-
+        public Form2()
+        {
+            InitializeComponent();
+        }
         public Form2(Form1 form)
         {
             form1 = form;
@@ -40,7 +36,7 @@ namespace AutoExecPrograms
 
         private void buttonAddProcess_Click(object sender, EventArgs e)
         {
-            if (textBoxName.Text.Length != 0 || textBoxName.Text.Length != 0)
+            if (textBoxName.Text.Length != 0 && textBoxPath.Text.Length != 0)
             {
                 mDataController.addProcess(textBoxName.Text, textBoxPath.Text, textBoxArgs.Text);
                 form1.updateUI();

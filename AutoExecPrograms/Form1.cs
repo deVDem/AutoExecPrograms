@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoExecPrograms
@@ -55,7 +48,6 @@ namespace AutoExecPrograms
 
         private void button_exec_Click(object sender, EventArgs e)
         {
-            //listView1.Items.Add(object); // добавить объект
             for (int i = 0; i < dataProcesses.Count; i++)
             {
                 Process.Start(dataProcesses[i].getPath(), dataProcesses[i].getArgs());
@@ -70,7 +62,10 @@ namespace AutoExecPrograms
 
         private void button_remove_Click(object sender, EventArgs e)
         {
-
+            for(int i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                dataController.deleteProcess(listView1.SelectedItems[i].Text);
+            }
         }
 
         private void Form1_Resize(object sender, EventArgs e)
