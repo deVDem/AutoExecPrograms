@@ -29,6 +29,7 @@ namespace AutoExecPrograms
             this.button_exec.Text = strings.getString(stringsIDs.getId(this.button_exec.Text));
             this.button_add.Text = strings.getString(stringsIDs.getId(this.button_add.Text));
             this.button_remove.Text = strings.getString(stringsIDs.getId(this.button_remove.Text));
+            this.Text = strings.getString(stringsIDs.getId(this.Text));
             dataProcesses = dataController.GetDataProcesses();
             updateUI();
         }
@@ -38,11 +39,19 @@ namespace AutoExecPrograms
             listView1.Columns.Clear();
             int width = (listView1.Width / 3);
             listView1.Columns.Add(strings.getString(stringsIDs.getId("NAME_PROCESS")), width);
-            listView1.Columns.Add(strings.getString(stringsIDs.getId("PATH_PROCESS")), width);
-            listView1.Columns.Add(strings.getString(stringsIDs.getId("ARGS_PROCESS")), width);
             for(int i = 0; i<dataProcesses.Count; i++)
             {
-                listView1.Columns.Add(dataProcesses[i].getName());
+                listView1.Items.Add(dataProcesses[i].getName());
+            }
+            listView1.Columns.Add(strings.getString(stringsIDs.getId("PATH_PROCESS")), width);
+            for (int i = 0; i < dataProcesses.Count; i++)
+            {
+                listView1.Items.Add(dataProcesses[i].getPath());
+            }
+            listView1.Columns.Add(strings.getString(stringsIDs.getId("ARGS_PROCESS")), width);
+            for (int i = 0; i < dataProcesses.Count; i++)
+            {
+                listView1.Items.Add(dataProcesses[i].getArgs());
             }
         }
 
@@ -54,7 +63,8 @@ namespace AutoExecPrograms
 
         private void button_add_Click(object sender, EventArgs e)
         {
-
+            Form2 newForm = new Form2();
+            newForm.Show();
         }
 
         private void button_remove_Click(object sender, EventArgs e)

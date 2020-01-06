@@ -30,6 +30,10 @@ namespace AutoExecPrograms
                     return 5;
                 case "ARGS_PROCESS":
                     return 6;
+                case "ADD_PROCESS":
+                    return 7;
+                case "CANCEL":
+                    return 8;
                 default:
                     return -1;
             }
@@ -44,6 +48,8 @@ namespace AutoExecPrograms
         private static String NAME_PROCESS = "Name";
         private static String PATH_PROCESS = "Path";
         private static String ARGS_PROCESS = "Arguments";
+        private static String ADD_PROCESS = "Add process";
+        private static String CANCEL = "Cancel";
 
         public Strings()
         {
@@ -67,6 +73,10 @@ namespace AutoExecPrograms
                     return PATH_PROCESS;
                 case 6:
                     return ARGS_PROCESS;
+                case 7:
+                    return ADD_PROCESS;
+                case 8:
+                    return CANCEL;
                 default:
                     return null;
             }

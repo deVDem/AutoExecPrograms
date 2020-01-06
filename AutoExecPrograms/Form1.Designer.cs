@@ -106,7 +106,7 @@
             this.Controls.Add(this.label_appname);
             this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "Form1";
-            this.Text = "Форма 1";
+            this.Text = "APP_NAME";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
             this.ResumeLayout(false);
