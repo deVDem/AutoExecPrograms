@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace AutoExecPrograms
@@ -26,6 +27,7 @@ namespace AutoExecPrograms
             labelArgsProcess.Text = strings.getString(stringsIDs.getId(labelArgsProcess.Text));
             buttonAddProcess.Text = strings.getString(stringsIDs.getId(buttonAddProcess.Text));
             buttonCancel.Text = strings.getString(stringsIDs.getId(buttonCancel.Text));
+            this.Text = strings.getString(stringsIDs.getId(this.Text));
             mDataController = DataController.get();
         }
 
@@ -43,6 +45,18 @@ namespace AutoExecPrograms
                 Close();
             }
             else MessageBox.Show(strings.getString(stringsIDs.getId("ERROR_NO_NAME_PATH")), strings.getString(stringsIDs.getId("ERROR")));
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = strings.getString(stringsIDs.getId("PATH_PROCESS"));
+            openFileDialog1.FileName = "";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                String filename = openFileDialog1.FileName;
+                textBoxPath.Text = filename;
+                if (textBoxName.Text.Length == 0) textBoxName.Text = Path.GetFileNameWithoutExtension(filename);
+            }
         }
     }
 }

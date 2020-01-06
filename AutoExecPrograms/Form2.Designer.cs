@@ -36,6 +36,9 @@
             this.textBoxArgs = new System.Windows.Forms.TextBox();
             this.buttonAddProcess = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNameProcess
@@ -71,7 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(114, 10);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(545, 20);
+            this.textBoxName.Size = new System.Drawing.Size(198, 20);
             this.textBoxName.TabIndex = 3;
             // 
             // textBoxPath
@@ -80,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPath.Location = new System.Drawing.Point(114, 34);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(545, 20);
+            this.textBoxPath.Size = new System.Drawing.Size(172, 20);
             this.textBoxPath.TabIndex = 4;
             // 
             // textBoxArgs
@@ -89,13 +92,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxArgs.Location = new System.Drawing.Point(114, 57);
             this.textBoxArgs.Name = "textBoxArgs";
-            this.textBoxArgs.Size = new System.Drawing.Size(545, 20);
+            this.textBoxArgs.Size = new System.Drawing.Size(198, 20);
             this.textBoxArgs.TabIndex = 5;
             // 
             // buttonAddProcess
             // 
             this.buttonAddProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAddProcess.Location = new System.Drawing.Point(13, 224);
+            this.buttonAddProcess.Location = new System.Drawing.Point(13, 91);
             this.buttonAddProcess.Name = "buttonAddProcess";
             this.buttonAddProcess.Size = new System.Drawing.Size(75, 23);
             this.buttonAddProcess.TabIndex = 6;
@@ -106,7 +109,7 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(584, 224);
+            this.buttonCancel.Location = new System.Drawing.Point(237, 91);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 7;
@@ -114,11 +117,28 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImage = global::AutoExecPrograms.Properties.Resources.ic_folder1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(292, 34);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 259);
+            this.ClientSize = new System.Drawing.Size(324, 126);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAddProcess);
             this.Controls.Add(this.textBoxArgs);
@@ -127,10 +147,12 @@
             this.Controls.Add(this.labelArgsProcess);
             this.Controls.Add(this.labelPathProcess);
             this.Controls.Add(this.labelNameProcess);
+            this.MaximumSize = new System.Drawing.Size(4000, 165);
             this.MinimumSize = new System.Drawing.Size(340, 165);
             this.Name = "Form2";
             this.Text = "ADD_PROCESS";
             this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +168,7 @@
         private System.Windows.Forms.TextBox textBoxArgs;
         private System.Windows.Forms.Button buttonAddProcess;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

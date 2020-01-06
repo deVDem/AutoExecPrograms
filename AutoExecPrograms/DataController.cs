@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
 
 namespace AutoExecPrograms
 {
@@ -44,12 +43,15 @@ namespace AutoExecPrograms
     {
         private static DataController sDataController;
         private List<DataProcess> dataProcesses = new List<DataProcess>();
+        FileStream fileStream;
+        String fileSettingsPath = (Application.ExecutablePath + "processes.txt").Replace("AutoExecPrograms.exe", "");
         public DataController()
         {
             
         }
         public static DataController get()
         {
+            //FileStream fileStream = File.OpenRead();
             if (sDataController == null) sDataController = new DataController();
             return sDataController;
         }
