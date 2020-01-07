@@ -23,26 +23,37 @@ namespace AutoExecPrograms
             this.button_remove.Text = strings.getString(stringsIDs.getId(this.button_remove.Text));
             this.Text = strings.getString(stringsIDs.getId(this.Text));
             dataProcesses = dataController.GetDataProcesses();
-            updateUI();
+            updateUI(false);
         }
 
-        public void updateUI()
+        public void updateUI(Boolean resize)
         {
-            listView1.Columns.Clear();
-            listView1.Items.Clear();
-            int width = (listView1.Width / 3);
+
             String name = strings.getString(stringsIDs.getId("NAME_PROCESS"));
             String path = strings.getString(stringsIDs.getId("PATH_PROCESS"));
             String args = strings.getString(stringsIDs.getId("ARGS_PROCESS"));
-            listView1.Columns.Add(name, width);
-            listView1.Columns.Add(path, width);
-            listView1.Columns.Add(args, width);
-            for (int i = 0; i<dataProcesses.Count; i++)
+            int width = (listView1.Width / 3);
+            if (resize)
             {
-                ListViewItem newitem = new ListViewItem(dataProcesses[i].getName(), name);
-                newitem.SubItems.Add(dataProcesses[i].getPath());
-                newitem.SubItems.Add(dataProcesses[i].getArgs());
-                listView1.Items.Add(newitem);
+                ListView.ColumnHeaderCollection column = listView1.Columns;
+                column[0].Width = width;
+                column[1].Width = width;
+                column[2].Width = width;
+            }
+            else
+            {
+                listView1.Columns.Clear();
+                listView1.Items.Clear();
+                listView1.Columns.Add(name, width);
+                listView1.Columns.Add(path, width);
+                listView1.Columns.Add(args, width);
+                for (int i = 0; i < dataProcesses.Count; i++)
+                {
+                    ListViewItem newitem = new ListViewItem(dataProcesses[i].getName(), name);
+                    newitem.SubItems.Add(dataProcesses[i].getPath());
+                    newitem.SubItems.Add(dataProcesses[i].getArgs());
+                    listView1.Items.Add(newitem);
+                }
             }
         }
 
@@ -50,8 +61,20 @@ namespace AutoExecPrograms
         {
             for (int i = 0; i < dataProcesses.Count; i++)
             {
-                Process.Start(dataProcesses[i].getPath(), dataProcesses[i].getArgs());
+                try
+                {
+                    Process.Start(dataProcesses[i].getPath(), dataProcesses[i].getArgs());
+                } catch(Exception)
+                {
+                    MessageBox.Show(strings.getString(stringsIDs.getId("PROGRAM")) + dataProcesses[i].getName() + strings.getString(stringsIDs.getId("NOT_EXEC")), strings.getString(stringsIDs.getId("PROGRAM")) + dataProcesses[i].getName() + strings.getString(stringsIDs.getId("NOT_EXEC")), MessageBoxButtons.OK);
+                }
             }
+        }
+        public void LockButtons(bool locked)
+        {
+            button_exec.Enabled = locked;
+            button_add.Enabled = locked;
+            button_remove.Enabled = locked;
         }
 
         private void button_add_Click(object sender, EventArgs e)
@@ -66,12 +89,12 @@ namespace AutoExecPrograms
             {
                 dataController.deleteProcess(listView1.SelectedItems[i].Text);
             }
-            updateUI();
+            updateUI(false);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            updateUI();
+            updateUI(true);
         }
     }
 }

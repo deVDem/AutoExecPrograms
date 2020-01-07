@@ -38,6 +38,10 @@ namespace AutoExecPrograms
                     return 9;
                 case "ERROR_NO_NAME_PATH":
                     return 10;
+                case "PROGRAM":
+                    return 11;
+                case "NOT_EXEC":
+                    return 12;
                 default:
                     return -1;
             }
@@ -56,6 +60,8 @@ namespace AutoExecPrograms
         private static String CANCEL = "Cancel";
         private static String ERROR = "Error";
         private static String ERROR_NO_NAME_PATH = "Please type name and path to process";
+        private static String PROGRAM = "Program \"";
+        private static String NOT_EXEC = "\" not execute";
 
         public Strings()
         {
@@ -87,6 +93,10 @@ namespace AutoExecPrograms
                     return ERROR;
                 case 10:
                     return ERROR_NO_NAME_PATH;
+                case 11:
+                    return PROGRAM;
+                case 12:
+                    return NOT_EXEC;
                 default:
                     return null;
             }

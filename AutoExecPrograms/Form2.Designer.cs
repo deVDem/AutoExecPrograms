@@ -151,6 +151,7 @@
             this.MinimumSize = new System.Drawing.Size(340, 165);
             this.Name = "Form2";
             this.Text = "ADD_PROCESS";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form2_FormClosed);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
