@@ -38,7 +38,8 @@ For execute a processes just click "Execute" button
 After adding process app automatically save this on file "%path_to_app%/processes.json"
 
 `Maybe if the app doesn't have permissions, it might crash`
-
+## Pulling request
+You can make pull and if this pull great i'm commit your job.
 ## Known bugs
 * Method `removeProcess` work on search by the name. It create bug with selected processes.
     * If you have two or more processes with the same name, the program can delete a random process with that name instead of the one you want.
