@@ -44,5 +44,5 @@ After adding process app automatically save this on file "%path_to_app%/processe
     * If you have two or more processes with the same name, the program can delete a random process with that name instead of the one you want.
 ## Contacts
 If necessary you can contact me on social networks
-*[VK](https://vk.com/pdevdem)*
-*Telegram: @devdem*
+* [VK](https://vk.com/pdevdem)
+* Telegram: @devdem
