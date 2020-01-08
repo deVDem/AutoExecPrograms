@@ -31,7 +31,7 @@ By the way, the application can run not only .exe files!
 After setting up, click on the "Add" button"
 
 ### Remove a processes
-To remove a proccess(-es) just select need name process(-es) and click "Remove". **Please read [Bugs](https://github.com/deVDem/AutoExecPrograms#Known%20bugs)**
+To remove a proccess(-es) just select need name process(-es) and click "Remove". **Please read [Bugs](https://github.com/deVDem/AutoExecPrograms#known-bugs)**
 ### Execute a processes
 For execute a processes just click "Execute" button
 ### Saving processes
