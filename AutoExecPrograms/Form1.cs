@@ -72,7 +72,7 @@ namespace AutoExecPrograms
         }
         public void LockButtons(bool locked)
         {
-            button_exec.Enabled = locked;
+            button_exec.Enabled = locked; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ; ;
             button_add.Enabled = locked;
             button_remove.Enabled = locked;
         }
