@@ -1,0 +1,22 @@
+﻿<Window x:Class="AutoExec2.Views.AddProcess"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AutoExec2.Views"
+        mc:Ignorable="d"
+        Title="Add Process" Height="150.667" Width="430" MinWidth="230" MinHeight="160" MaxHeight="160" Closed="Window_Closed">
+    <Grid>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Path" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+        <Label Content="Args" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTextBox" Height="23" Margin="57,13,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="pathTextBox" Height="23" Margin="57,41,38,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="argsTextBox" Height="23" Margin="57,69,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Margin="0,41,10,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="23" Click="PathButton_Click">
+            <Image Source="ic_folder.png"/>
+        </Button>
+        <Button x:Name="addButton" Content="Add" Margin="10,100,10,0" Height="20" VerticalAlignment="Top" Click="addButton_Click"/>
+
+    </Grid>
+</Window>

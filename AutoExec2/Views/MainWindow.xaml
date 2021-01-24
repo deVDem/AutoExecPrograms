@@ -5,33 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoExec2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="251" Width="490" MinHeight="320" MinWidth="610">
+        Title="AutoExecPrograms 2.0" Height="265" Width="223" MinHeight="320" MinWidth="610">
     <Grid x:Name="mainGrid" Margin="0,0,2,0">
         <Grid.Effect>
             <BlurEffect x:Name="blur" Radius="0"/>
         </Grid.Effect>
-        <Label x:Name="appNameLabel" Content="APP_NAME" Margin="10,10,10,0" FontWeight="Bold" FontSize="72" VerticalAlignment="Top" Height="106">
+        <Label x:Name="appNameLabel" Content="APP_NAME" Margin="10,10,10,0" FontWeight="Bold" FontSize="48" VerticalAlignment="Top" Height="71">
             <Label.Foreground>
                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}"/>
             </Label.Foreground>
         </Label>
-        <ListView x:Name="processesList" Margin="10,116,153,10">
+        <ListView x:Name="processesList" Margin="10,116,153,10" SizeChanged="LV_SizeChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
+                <GridView x:Name="GridView1">
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding name}"/>
+                    <GridViewColumn Header="Path" DisplayMemberBinding="{Binding path}"/>
+                    <GridViewColumn Header="Arguments" DisplayMemberBinding="{Binding args}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="addButton" Content="ADD" Margin="0,121,13,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Width="133"/>
-        <Button x:Name="removeButton" Content="REMOVE" HorizontalAlignment="Right" Margin="0,156,13,0" VerticalAlignment="Top" Width="133" Height="30"/>
-        <Button x:Name="execButton" Content="EXEC" HorizontalAlignment="Right" Margin="0,191,13,0" VerticalAlignment="Top" Width="133" Height="30"/>
+        <Button x:Name="addButton" Content="ADD" Margin="0,121,13,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Right" Width="133" Click="addProcessButton_Click"/>
+        <Button x:Name="removeButton" Content="REMOVE" HorizontalAlignment="Right" Margin="0,156,13,0" VerticalAlignment="Top" Width="133" Height="30" Click="removeProcessButton_Click"/>
+        <Button x:Name="execButton" Content="EXEC" HorizontalAlignment="Right" Margin="0,191,13,0" VerticalAlignment="Top" Width="133" Height="30" Click="execProfileButton_Click"/>
         <Label x:Name="profileLabel" Content="PROFILE" Margin="0,0,92,37" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="54"/>
-        <ComboBox x:Name="profileList" HorizontalAlignment="Right" Margin="0,0,65,10" Width="81" Height="22" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="profileList" HorizontalAlignment="Right" Margin="0,0,65,10" Width="81" Height="22" VerticalAlignment="Bottom" MaxDropDownHeight="128" SelectionChanged="profileList_SelectionChanged"/>
         <Button x:Name="addProfileButton" HorizontalAlignment="Right" Margin="0,0,38,10" Width="22" Click="addProfile" IsCancel="False" IsEnabled="True" Height="22" VerticalAlignment="Bottom">
             <Image Source="plus.png" />
         </Button>
         <Button x:Name="deleteProfileButton" HorizontalAlignment="Right" Margin="0,0,13,10" Width="22" Click="deleteProfile" Height="22" VerticalAlignment="Bottom">
             <Image Source="minus.png" />
         </Button>
+        <Label x:Name="currentProfileText" Content="Current Profile" Margin="10,74,10,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
     </Grid>
 </Window>

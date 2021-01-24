@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoExec2.Views"
         mc:Ignorable="d"
-        Title="AddProfile" Height="160" Width="200" MinWidth="200" MinHeight="160" ResizeMode="NoResize" ShowInTaskbar="False" Closed="Window_Closed">
+        Title="Add Profile" Height="160" Width="200" MinWidth="200" MinHeight="160" ResizeMode="NoResize" ShowInTaskbar="False" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Add profile" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold" FontSize="22"/>
-        <TextBox x:Name="newNameText" Height="23" Margin="59,56,10,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="newNameText" Height="23" Margin="59,56,10,0" VerticalAlignment="Top" AllowDrop="True" Tag="" ToolTip="" MaxLines="1" MaxLength="32"/>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
         <Button x:Name="addButton" Content="Add" Margin="10,85,10,10" Click="addButton_Click"/>
 

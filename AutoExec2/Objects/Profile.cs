@@ -4,8 +4,9 @@ namespace AutoExec2.Objects
 {
     public class Profile
     {
-        public string name;
-        public List<Process> Processes { get; private set; } = new List<Process>();
+        public string name { get; set; }
+        public List<Process> Processes { get; set; } = new List<Process>();
+        Controllers.DataContoller dataContoller = Controllers.DataContoller.GetInstance();
 
         public Profile(string name)
         {
@@ -15,11 +16,13 @@ namespace AutoExec2.Objects
         public void AddProcess(Process process)
         {
             Processes.Add(process);
+            dataContoller.SaveSettings();
         }
 
         public void DeleteProcess(Process process)
         {
             Processes.Remove(process);
+            dataContoller.SaveSettings();
         }
         
         public Process FindProcessByName(string name)

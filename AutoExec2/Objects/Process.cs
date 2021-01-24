@@ -8,9 +8,9 @@ namespace AutoExec2.Objects
 {
     public class Process
     {
-        public string name;
-        public string path;
-        public string args;
+        public string name { get; set; }
+        public string path { get; set; }
+        public string args { get; set; }
 
         public Process(string name, string path, string args)
         {
